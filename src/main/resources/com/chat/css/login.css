@@ -1,0 +1,132 @@
+#header {
+  -fx-background-color: rgba(229, 229, 229, 0.08);
+}
+
+#menubar {
+  -fx-background-color: transparent;
+}
+#profile,
+#setting,
+#join_new,
+#new_group,
+#new_chat,
+#about,
+#contact {
+  -fx-background-color: rgb(107, 99, 149);
+  -fx-text-fill: blue;
+}
+
+#profile:hover,
+#setting:hover,
+#join_new:hover,
+#new_group:hover,
+#new_chat:hover,
+#about:hover,
+#contact:hover,
+#menu:hover {
+  -fx-background-color: rgba(36, 32, 59, 1);
+}
+
+/* #user_name:hover {
+  -fx-text-fill: rgba(13, 130, 219, 0.816);
+  -fx-rotate-x: 3;
+} */
+
+#min_btn,
+#max_btn,
+#close_btn {
+  -fx-background-color: transparent;
+}
+
+#min_btn:hover,
+#max_btn:hover,
+#menu:hover {
+  -fx-background-color: rgba(36, 32, 59, 1);
+}
+
+#close_btn:hover {
+  -fx-background-color: red;
+}
+
+/* body bart : sidebar and dialogue box */
+#body {
+  -fx-background-color: rgba(36, 32, 59, 1);
+}
+
+/* sidebar  */
+
+#sidebar {
+  -fx-background-color: rgba(45, 40, 73, 1);
+  -fx-border-color: rgb(65, 59, 101);
+  -fx-border-width: 0 2 0 0;
+}
+
+#search_box {
+  -fx-background-color: rgb(55, 50, 85);
+}
+
+#search_field {
+  -fx-background-color: rgba(94, 87, 135, 0.53);
+  -fx-background-radius: 10;
+  -fx-text-fill: white;
+  -fx-font-size: 14;
+}
+
+#search_btn {
+  -fx-background-color: transparent;
+}
+
+#search_btn:hover {
+  -fx-background-color: rgb(71, 64, 106);
+}
+
+/* dialogue box  */
+
+#group_name_box {
+  -fx-background-color: transparent;
+  -fx-border-color: rgba(36, 32, 59, 1);
+  -fx-border-width: 0 0 4 0;
+  /* -fx-effect: dropshadow(gaussian, white, 0, 5, 3, 5); */
+}
+
+#group_detail_btn {
+  -fx-background-color: transparent;
+}
+
+#group_detail_btn:hover {
+  -fx-background-color: rgba(36, 32, 59, 1);
+}
+
+#chat_box {
+  -fx-background-color: rgba(50, 55, 95, 0.44);
+}
+
+#message_box {
+  -fx-background-color: rgba(68, 62, 103, 1);
+}
+
+#message_field {
+  -fx-background-color: transparent;
+  -fx-text-fill: white;
+  -fx-border-color: rgb(90, 83, 130);
+  -fx-border-width: 0 0 0 2;
+}
+
+#send_btn {
+  -fx-background-color: transparent;
+}
+
+#send_btn:hover {
+  -fx-background-color: rgb(90, 83, 130);
+}
+
+/* footer part  */
+
+#footer {
+  -fx-background-color: rgba(62, 58, 90, 1);
+}
+
+#about_btn {
+  -fx-background-color: transparent;
+  -fx-text-fill: White;
+}
