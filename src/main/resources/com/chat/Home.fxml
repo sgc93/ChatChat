@@ -124,16 +124,18 @@
                <children>
                   <VBox id="chat_box" prefHeight="658.0" prefWidth="1038.0">
                      <children>
-                        <HBox fx:id="group_name_box" alignment="CENTER" prefHeight="36.0" prefWidth="1038.0" spacing="20.0">
+                        <HBox fx:id="group_name_box" alignment="CENTER" prefHeight="59.0" prefWidth="1038.0" spacing="20.0">
                            <children>
-                              <Label fx:id="group_name_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="934.0" text="Lit Codders" textAlignment="CENTER" textFill="#b19696">
-                                 <font>
-                                    <Font name="Courier New Bold" size="15.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
-                              </Label>
+                              <VBox prefHeight="55.0" prefWidth="945.0">
+                                 <children>
+                                    <Label fx:id="group_name_label" contentDisplay="CENTER" prefHeight="36.0" prefWidth="931.0" text="Lit Codders" textAlignment="CENTER" textFill="#b19696">
+                                       <font>
+                                          <Font name="Courier New Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="mem_mun_label" prefHeight="18.0" prefWidth="715.0" text="5 members" textFill="WHITE" />
+                                 </children>
+                              </VBox>
                               <Button fx:id="group_detail_btn" mnemonicParsing="false" prefHeight="46.0" prefWidth="46.0">
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -151,7 +153,7 @@
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <VBox fx:id="message_list" prefHeight="670.0" prefWidth="1038.0" />
+                        <VBox fx:id="message_list" prefHeight="595.0" prefWidth="1038.0" />
                      </children></VBox>
                   <HBox id="message_box" alignment="CENTER" prefHeight="50.0" prefWidth="1035.0" spacing="10.0">
                      <children>

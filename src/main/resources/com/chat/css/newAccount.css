@@ -9,10 +9,11 @@
 
 #close_btn {
   -fx-background-color: transparent;
+  -fx-background-radius: 0;
 }
 
 #close_btn:hover {
-  -fx-background-color: rgba(224, 25, 25, 0.293);
+  -fx-background-color: rgba(78, 72, 111, 0.271);
 }
 
 .field {
@@ -22,26 +23,24 @@
   -fx-text-fill: white;
 }
 
-#next_btn {
-  -fx-background-color: rgba(105, 87, 207, 0.482);
+#sign_btn {
+  -fx-background-color: transparent;
   -fx-text-fill: white;
-  -fx-border-color: rgba(255, 255, 255, 0.433);
-  -fx-border-width: 0 0 2 0;
 }
 
-#next_btn:hover {
-  -fx-background-color: rgb(105, 87, 207);
-  -fx-border-color: white;
+#sign_btn:hover {
+  -fx-background-color: rgba(105, 87, 207, 0.327);
 }
 
 /* for login stage  */
-#login_btn {
+
+#unlock_btn {
   -fx-background-color: transparent;
   -fx-text-fill: white;
   -fx-font-weight: 500;
   -fx-font-size: 14;
 }
 
-#login_btn:hover {
+#unlock_btn:hover {
   -fx-background-color: rgba(86, 80, 120, 1);
 }

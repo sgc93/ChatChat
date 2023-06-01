@@ -8,13 +8,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="root" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="487.0" spacing="20.0" stylesheets="@css/newAccount.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chat.controller.LoginController">
+<VBox fx:id="root" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="487.0" spacing="20.0" stylesheets="@css/newAccount.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chat.controller.LoginController">
    <children>
-      <HBox prefHeight="41.0" prefWidth="466.0" spacing="10.0">
+      <HBox alignment="CENTER" prefHeight="42.0" spacing="10.0">
          <children>
-            <Label fx:id="error_label" alignment="CENTER" prefHeight="42.0" prefWidth="413.0" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="error_label" alignment="CENTER" prefHeight="42.0" prefWidth="392.0" textAlignment="CENTER" textFill="WHITE">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -22,32 +23,33 @@
                   <Font name="Lucida Sans Demibold Roman" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="close_btn" mnemonicParsing="false" onAction="#closeLoginStage" prefHeight="40.0" prefWidth="40.0">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons/close.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+            <Button fx:id="close_btn" alignment="CENTER" minWidth="34.0" mnemonicParsing="false" onAction="#closeLoginStage" prefHeight="35.0" prefWidth="35.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
                <padding>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
+               <graphic>
+                  <SVGPath content="M6,18L18,6M6,6l12,12" fill="WHITE" stroke="WHITE" strokeWidth="3.0" />
+               </graphic>
             </Button>
          </children>
       </HBox>
-      <TextField fx:id="pass_field" alignment="CENTER" promptText="Password" styleClass="field">
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/lock.png" />
+         </image></ImageView>
+      <Label text="Enter Your ChatChat Passcode" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="pass_field" alignment="CENTER" promptText="Passcode" styleClass="field">
          <VBox.margin>
             <Insets left="100.0" right="100.0" top="20.0" />
          </VBox.margin></TextField>
-      <TextField fx:id="con_pass_field" alignment="CENTER" promptText="Confirm Passwrod" styleClass="field">
-         <VBox.margin>
-            <Insets left="100.0" right="100.0" top="20.0" />
-         </VBox.margin></TextField>
-      <Button fx:id="login_btn" mnemonicParsing="false" onAction="#login" text="Login" />
+      <Button fx:id="unlock_btn" mnemonicParsing="false" onAction="#unlock" text="Unlock" />
    </children>
    <padding>
       <Insets left="10.0" right="10.0" top="10.0" />
