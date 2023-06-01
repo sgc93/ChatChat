@@ -48,7 +48,7 @@ public class App extends Application {
                 return true;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
         return false;
     }

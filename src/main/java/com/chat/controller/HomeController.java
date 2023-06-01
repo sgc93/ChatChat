@@ -53,6 +53,9 @@ public class HomeController {
     private Label group_name_label;
 
     @FXML
+    private Label mem_num_label;
+
+    @FXML
     private HBox header;
 
     @FXML
@@ -139,12 +142,13 @@ public class HomeController {
     @FXML
     void createNewAccount(ActionEvent event) throws Exception {
         // NewAccountController newAccountController = new NewAccountController();
-        // newAccountController.getIn(event);
+        // newAccountController.createNewAccount(event);
     }
 
     @FXML
     void maximizeLoginStage(ActionEvent event) {
-
+        Stage stage = (Stage) close_btn.getScene().getWindow();
+        stage.setMaximized(true);
     }
 
     @FXML
@@ -178,7 +182,6 @@ public class HomeController {
         Scene scene = new Scene(root);
         homeStage.setScene(scene);
         homeStage.setTitle("chatchat");
-        // homeStage.setMaximized(true);
         homeStage.show();
     }
 

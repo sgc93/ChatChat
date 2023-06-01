@@ -10,6 +10,7 @@ public class Database {
     String client_name;
     public Database(String name){
         this.client_name = name;
+        this.createTable("client");
     }
 
     public static Connection connect(){
@@ -29,8 +30,6 @@ public class Database {
             String sql = "CREATE TABLE IF NOT EXISTS " + table_name + " (\n"
                     + "	client_id integer PRIMARY KEY AUTOINCREMENT,\n"
                     + "	username text NOT NULL,\n"
-                    + "	ip varchar(16) NOT NULL,\n"
-                    + "	port varchar(10) NOT NULL,\n"
                     + "	password text NOT NULL\n"
                     + ");";
             System.out.println(sql);

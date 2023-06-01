@@ -22,10 +22,7 @@ public class LoginController {
     private Button close_btn;
 
     @FXML
-    private TextField con_pass_field;
-
-    @FXML
-    private Button login_btn;
+    private Button unlock_btn;
 
     @FXML
     private TextField pass_field;
@@ -35,36 +32,35 @@ public class LoginController {
 
     @FXML
     void closeLoginStage(ActionEvent event) {
-        Stage stage = (Stage) login_btn.getScene().getWindow();
+        Stage stage = (Stage) unlock_btn.getScene().getWindow();
         stage.close();
     }
 
     @FXML
-    void login(ActionEvent event) throws Exception {
-        VBox vbox = (VBox) login_btn.getParent();
-        TextField passfield = (TextField) vbox.getChildren().get(1);
-        TextField confield = (TextField) vbox.getChildren().get(2);
-        if(!isEmpty(passfield, confield) && isvalid(passfield) && isConfirmed(passfield, confield)){
-            Stage stage = (Stage) login_btn.getScene().getWindow();
+    void unlock(ActionEvent event) throws Exception {
+        VBox vbox = (VBox) unlock_btn.getParent();
+        TextField passfield = (TextField) vbox.getChildren().get(3);
+        if(!isEmpty(passfield) && !isBlank(passfield) && isvalid(passfield)){
+            Stage stage = (Stage) unlock_btn.getScene().getWindow();
             stage.close();
             HomeController homeController = new HomeController(stage);
             homeController.showHomePage();
         }
     }
 
-    private boolean isEmpty(TextField passfield, TextField confield) {
-        if(passfield.getText().isBlank() || confield.getText().isBlank()){
-            error_label.setText("You have Empyt Fields!");
+    private boolean isEmpty(TextField passfield) {
+        if(passfield.getText().isEmpty()){
+            error_label.setText("Passcode field is Empty!");
             return true;
         }
         return false;
     }
 
-    private boolean isConfirmed(TextField passfield, TextField confield) {
-        if(passfield.getText().equals(confield.getText())){
+    private boolean isBlank(TextField passfield) {
+        if(passfield.getText().isBlank()){
+            error_label.setText("Only Spaces cannot be passcode!");
             return true;
         }
-        error_label.setText("Password is Not Confirmed!");
         return false;
     }
 
