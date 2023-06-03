@@ -3,12 +3,11 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -17,32 +16,15 @@
    <children>
       <HBox fx:id="header" prefHeight="29.0" prefWidth="700.0" spacing="10.0">
          <children>
-            <MenuBar fx:id="menubar" prefHeight="34.0" prefWidth="62.0" useSystemMenuBar="true">
-              <menus>
-                <Menu id="menu" mnemonicParsing="false">
-                  <items>
-                    <MenuItem fx:id="profile" mnemonicParsing="false" onAction="#showPersonalProfile" text="Your Profile" />
-                        <MenuItem fx:id="setting" mnemonicParsing="false" onAction="#showSetting" text="Setting" />
-                        <MenuItem fx:id="join_new" mnemonicParsing="false" onAction="#joinNewGroup" text="Join New Grouop" />
-                        <MenuItem fx:id="new_group" mnemonicParsing="false" onAction="#createNewGroup" text="Create New Group" />
-                        <MenuItem fx:id="new_chat" mnemonicParsing="false" onAction="#createNewChat" text="Create New Chat" />
-                        <MenuItem fx:id="new_account" mnemonicParsing="false" onAction="#createNewAccount" text="Add New Account" />
-                        <MenuItem fx:id="about" mnemonicParsing="false" onAction="#showAboutPage" text="About" />
-                        <MenuItem id="contact" mnemonicParsing="false" text="Contact" />
-                  </items>
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/menu.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                </Menu>
-              </menus>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </MenuBar>
+            <Button fx:id="menu_btn" mnemonicParsing="false" onAction="#showMenu">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/menu.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <Label id="app_name" fx:id="user_name" prefHeight="34.0" prefWidth="366.0" text="Ymb@ChatChat✔" textFill="#ffffff9d">
                <font>
                   <Font name="Courier New" size="13.0" />
@@ -96,14 +78,15 @@
          </children></HBox>
       <HBox onMousePressed="#onMousePressed" prefHeight="750.0" prefWidth="1400.0">
          <children>
-            <VBox fx:id="sidebar" prefHeight="747.0" prefWidth="341.0" spacing="10.0">
+            <AnchorPane prefHeight="741.0" prefWidth="290.0">
                <children>
                   <HBox fx:id="search_box" alignment="CENTER" prefHeight="51.0" prefWidth="340.0" spacing="10.0">
                      <children>
                         <TextField fx:id="search_field" prefHeight="31.0" prefWidth="276.0" promptText="Search here ...">
                            <padding>
                               <Insets left="15.0" />
-                           </padding></TextField>
+                           </padding>
+                        </TextField>
                         <Button fx:id="search_btn" mnemonicParsing="false" prefHeight="31.0" prefWidth="36.0">
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
@@ -118,11 +101,110 @@
                         <Insets left="10.0" right="10.0" />
                      </padding>
                   </HBox>
-                  <VBox fx:id="chat_list" prefHeight="674.0" prefWidth="340.0" />
-               </children></VBox>
+                  <ScrollPane fx:id="chat_box" layoutY="51.0" prefHeight="691.0" prefWidth="340.0" styleClass="dialogue-box">
+                     <content>
+                        <VBox fx:id="chat_vbox" prefWidth="336.0" />
+                     </content>
+                  </ScrollPane>
+                  <VBox fx:id="menu_box" alignment="TOP_CENTER" layoutX="9.0" layoutY="8.0" prefHeight="724.0" prefWidth="268.0" spacing="40.0" visible="false">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="33.0" prefWidth="246.0">
+                           <children>
+                              <Button fx:id="exit_btn" mnemonicParsing="false" onAction="#exitMenu">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@icons/close.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets right="3.0" />
+                           </padding>
+                        </HBox>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/person.png" />
+                           </image>
+                        </ImageView>
+                        <Button alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" prefWidth="300.0" styleClass="sidebar-btns" text="Edit Profile" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/edit-user.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Comic Sans MS" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" prefWidth="300.0" styleClass="sidebar-btns" text="New Group" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/group.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Comic Sans MS" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" graphicTextGap="25.0" mnemonicParsing="false" prefWidth="300.0" styleClass="sidebar-btns" text="New Chat" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/chat.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Comic Sans MS" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" graphicTextGap="32.0" mnemonicParsing="false" prefWidth="300.0" styleClass="sidebar-btns" text="Setting" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@icons/setting.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Comic Sans MS" size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
             <VBox id="dialogue_box" alignment="CENTER" prefHeight="741.0" prefWidth="1058.0" spacing="10.0">
                <children>
-                  <VBox id="chat_box" prefHeight="658.0" prefWidth="1038.0">
+                  <VBox id="chat_box" prefHeight="658.0" prefWidth="1038.0" styleClass="chatting-area">
                      <children>
                         <HBox fx:id="group_name_box" alignment="CENTER" prefHeight="59.0" prefWidth="1038.0" spacing="20.0">
                            <children>
@@ -153,13 +235,17 @@
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <VBox fx:id="message_list" prefHeight="595.0" prefWidth="1038.0" />
+                        <ScrollPane prefHeight="602.0" prefWidth="1038.0" styleClass="dialogue-box">
+                           <content>
+                              <VBox fx:id="message_vbox" alignment="TOP_CENTER" prefWidth="1022.0" styleClass="message-box" />
+                           </content>
+                        </ScrollPane>
                      </children></VBox>
                   <HBox id="message_box" alignment="CENTER" prefHeight="50.0" prefWidth="1035.0" spacing="10.0">
                      <children>
                         <Label fx:id="user_label" prefHeight="43.0" prefWidth="43.0">
                            <graphic>
-                              <ImageView fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="profile_img" fitHeight="43.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@icons/person.png" />
                                  </image>
@@ -171,7 +257,7 @@
                               <Insets left="10.0" />
                            </padding>
                         </TextField>
-                        <Button fx:id="send_btn" mnemonicParsing="false" prefHeight="47.0" prefWidth="51.0">
+                        <Button fx:id="send_btn" mnemonicParsing="false" onAction="#sendMessage" prefHeight="47.0" prefWidth="51.0">
                            <graphic>
                               <ImageView fx:id="d" fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

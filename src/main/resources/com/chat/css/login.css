@@ -2,46 +2,46 @@
   -fx-background-color: rgba(229, 229, 229, 0.08);
 }
 
-#menubar {
+#menu_btn {
   -fx-background-color: transparent;
 }
-#profile,
-#setting,
-#join_new,
-#new_group,
-#new_chat,
-#about,
-#contact {
-  -fx-background-color: rgb(107, 99, 149);
-  -fx-text-fill: blue;
+
+.side-root {
+  -fx-background-color: rgba(36, 32, 59, 1);
+  -fx-border-color: rgb(71, 65, 107);
+  -fx-border-width: 0 1 0 0;
 }
 
-#profile:hover,
-#setting:hover,
-#join_new:hover,
-#new_group:hover,
-#new_chat:hover,
-#about:hover,
-#contact:hover,
-#menu:hover {
+#menu_box {
+  -fx-background-color: rgba(36, 32, 59, 1);
+  -fx-border-color: rgba(255, 255, 255, 0.355);
+  -fx-border-width: 0 1 1 0;
+}
+
+.sidebar-btns {
+  -fx-background-color: rgba(107, 99, 149, 0.153);
+  -fx-text-fill: rgb(56, 92, 169);
+}
+
+.sidebar-btns:hover {
   -fx-background-color: rgba(36, 32, 59, 1);
 }
 
-/* #user_name:hover {
-  -fx-text-fill: rgba(13, 130, 219, 0.816);
-  -fx-rotate-x: 3;
-} */
-
 #min_btn,
 #max_btn,
-#close_btn {
+#close_btn,
+#exit_btn {
   -fx-background-color: transparent;
 }
 
 #min_btn:hover,
 #max_btn:hover,
-#menu:hover {
+#menu_btn:hover {
   -fx-background-color: rgba(36, 32, 59, 1);
+}
+
+#exit_btn:hover {
+  -fx-background-color: rgba(74, 68, 107, 0.466);
 }
 
 #close_btn:hover {
@@ -129,4 +129,35 @@
 #about_btn {
   -fx-background-color: transparent;
   -fx-text-fill: White;
+}
+
+/* chatting page  */
+.dialogue-box {
+  -fx-background-color: rgba(36, 32, 59, 1);
+}
+
+.dialogue-box .viewport {
+  -fx-background-color: rgba(36, 32, 59, 1);
+}
+
+.dialogue-box .scroll-bar {
+  -fx-background-color: rgba(36, 32, 59, 1);
+}
+
+.dialogue-box .thumb {
+  -fx-background-color: rgba(75, 70, 104, 0.298);
+}
+
+.text-label {
+  -fx-background-color: rgba(57, 74, 107, 0.465);
+  -fx-background-radius: 23px;
+  -fx-padding: 10;
+  -fx-text-fill: white;
+  -fx-max-width: 700;
+  -fx-wrap-text: true;
+}
+
+#message_vbox {
+  -fx-background-color: rgba(36, 32, 59, 1);
+  -fx-spacing: 10;
 }
