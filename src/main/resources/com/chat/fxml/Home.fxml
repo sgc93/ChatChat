@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" styleClass="root" stylesheets="@../css/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chat.controller.HomeController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <HBox fx:id="header" alignment="CENTER" prefHeight="29.0" prefWidth="700.0" spacing="10.0" style="-fx-background-radius: 15 15 0 0;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="menu_btn" mnemonicParsing="false" onAction="#showMenu" prefHeight="50.0" prefWidth="50.0">
+                     <graphic>
+                        <SVGPath content="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" fill="WHITE" fillRule="EVEN_ODD" stroke="WHITE" strokeLineCap="ROUND" />
+                     </graphic>
+                  </Button>
+                  <Label id="app_name" fx:id="user_name" prefHeight="34.0" prefWidth="415.0" text="Ymb@ChatChat✔" textFill="#ffffff9d">
+                     <font>
+                        <Font name="Courier New" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="titlebar" onMousePressed="#onMousePressed" prefHeight="34.0" prefWidth="773.0" />
+                  <HBox alignment="CENTER" prefHeight="49.0" prefWidth="145.0">
+                     <children>
+                        <Button fx:id="min_btn" alignment="CENTER" mnemonicParsing="false" onAction="#minimizeLoginPage" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <graphic>
+                              <SVGPath content="M18,12H6" fill="WHITE" stroke="WHITE" strokeWidth="2.0" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="max_btn" alignment="CENTER" mnemonicParsing="false" onAction="#maximizeLoginStage" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <graphic>
+                              <SVGPath content="M4.5,3C3.67157,3,3,3.67157,3,4.5V11.5C3,12.3284,3.67157,13,4.5,13H11.5C12.3284,13,13,12.3284,13,11.5V4.5C13,3.67157,12.3284,3,11.5,3H4.5ZM4.5,4H11.5C11.7761,4,12,4.22386,12,4.5V11.5C12,11.7761,11.7761,12,11.5,12H4.5C4.22386,12,4,11.7761,4,11.5V4.5C4,4.22386,4.22386,4,4.5,4Z" fill="WHITE" stroke="WHITE" />
+                           </graphic>
+                        </Button>
+                        <Button fx:id="close_btn" alignment="CENTER" mnemonicParsing="false" onAction="#closeLoginStage" prefHeight="27.0" prefWidth="45.0" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <graphic>
+                              <SVGPath content="M5.29289,5.29289C5.68342,4.90237,6.31658,4.90237,6.70711,5.29289L12,10.5858L17.2929,5.29289C17.6834,4.90237,18.3166,4.90237,18.7071,5.29289C19.0976,5.68342,19.0976,6.31658,18.7071,6.70711L13.4142,12L18.7071,17.2929C19.0976,17.6834,19.0976,18.3166,18.7071,18.7071C18.3166,19.0976,17.6834,19.0976,17.2929,18.7071L12,13.4142L6.70711,18.7071C6.31658,19.0976,5.68342,19.0976,5.29289,18.7071C4.90237,18.3166,4.90237,17.6834,5.29289,17.2929L10.5858,12L5.29289,6.70711C4.90237,6.31658,4.90237,5.68342,5.29289,5.29289Z" fill="WHITE" stroke="WHITE" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets right="3.0" top="3.0" />
+               </padding>
+            </HBox>
+         </top>
+         <left>
+            <AnchorPane prefHeight="744.0" prefWidth="349.0" styleClass="side-root" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="search_box" alignment="CENTER" layoutX="8.0" layoutY="8.0" prefHeight="40.0" prefWidth="324.0" spacing="5.0" styleClass="search-box">
+                     <children>
+                        <TextField fx:id="search_field" prefHeight="31.0" prefWidth="274.0" promptText="Search here ...">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </TextField>
+                        <Button fx:id="search_btn" mnemonicParsing="false" prefHeight="31.0" prefWidth="36.0">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/bx-search.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </HBox>
+                  <ScrollPane fx:id="chatScroll_pane" layoutY="63.0" prefHeight="680.0" prefWidth="340.0">
+                     <content>
+                        <VBox fx:id="chat_vbox" alignment="TOP_CENTER" prefWidth="320.0" spacing="15.0">
+                           <children>
+                              <HBox fx:id="chat_box" alignment="CENTER" prefHeight="58.0" prefWidth="306.0" spacing="3.0" styleClass="chat-box">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="14.0" textFill="#60cdff" />
+                                    <Label fx:id="pp_label" alignment="CENTER" prefHeight="62.0" prefWidth="65.0" styleClass="pp-label" textAlignment="CENTER" textFill="#c4e3ff">
+                                       <font>
+                                          <Font name="Cooper Black" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox alignment="CENTER" prefHeight="58.0" prefWidth="254.0">
+                                       <children>
+                                          <Label prefHeight="30.0" prefWidth="253.0" text="Saved Messages" textFill="WHITE">
+                                             <font>
+                                                <Font name="Century" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="253.0" spacing="5.0">
+                                             <children>
+                                                <Label fx:id="lastMess_label" prefHeight="18.0" prefWidth="181.0" text="I was like are you series, and he was lik what you have mentioned him alot in you single sentence and that is the sign of falling in love with someone." textFill="#888888" />
+                                                <Label fx:id="time_label" text="10:03 PM" textFill="#a1aab3" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="58.0" prefWidth="306.0" spacing="3.0" style="-fx-background-color: rgba(255, 255, 255, 0.0605);" styleClass="chat-box">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="14.0" style="-fx-background-color: #60CDFF; -fx-background-radius: 25;" textFill="#60cdff" />
+                                    <Label fx:id="gPP_label" alignment="CENTER" prefHeight="62.0" prefWidth="65.0" styleClass="pp-label" text="GN" textAlignment="CENTER" textFill="#c4e3ff">
+                                       <font>
+                                          <Font name="Cooper Black" size="22.0" />
+                                       </font>
+                                    </Label>
+                                    <VBox alignment="CENTER" prefHeight="58.0" prefWidth="254.0">
+                                       <children>
+                                          <Label fx:id="gname_label" prefHeight="30.0" prefWidth="253.0" text="Group User Name" textFill="WHITE">
+                                             <font>
+                                                <Font name="Century" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="253.0" spacing="5.0">
+                                             <children>
+                                                <Label fx:id="glastMess_label" prefHeight="18.0" prefWidth="181.0" text="Group Last Message" textFill="#888888" />
+                                                <Label fx:id="gtime_label" prefHeight="18.0" prefWidth="54.0" text="last m t" textFill="#a1aab3" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="5.0" right="3.0" top="10.0" />
+                           </padding></VBox>
+                     </content>
+                     <padding>
+                        <Insets right="3.0" />
+                     </padding>
+                  </ScrollPane>
+                  <VBox fx:id="menu_box" alignment="TOP_CENTER" prefHeight="743.0" prefWidth="352.0" spacing="15.0" styleClass="box" visible="false">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="340.0">
+                           <children>
+                              <Button fx:id="exit_btn" alignment="CENTER" mnemonicParsing="false" onAction="#exitMenu" prefHeight="35.0" prefWidth="35.0">
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/close.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <padding>
+                                    <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                 </padding>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets right="3.0" />
+                           </padding>
+                        </HBox>
+                        <ImageView fitHeight="79.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/person.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Abc" textFill="#ffffffb2" />
+                        <Button alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" prefWidth="300.0" styleClass="btns" text="Accounts">
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Comic Sans MS" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" prefWidth="300.0" styleClass="btns" text="Edit  Profile" textAlignment="CENTER">
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Comic Sans MS" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" graphicTextGap="25.0" mnemonicParsing="false" prefWidth="300.0" styleClass="btns" text="Setting" textAlignment="CENTER">
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Comic Sans MS" size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="setting_btn" alignment="CENTER" graphicTextGap="32.0" mnemonicParsing="false" onAction="#changeToLightMode" prefWidth="300.0" styleClass="btns" text="Ask" textAlignment="CENTER">
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                           <font>
+                              <Font name="Comic Sans MS" size="18.0" />
+                           </font>
+                        </Button>
+                        <Region prefHeight="188.0" prefWidth="332.0" styleClass="spacer" />
+                        <HBox alignment="CENTER" prefHeight="137.0" prefWidth="332.0" spacing="10.0" styleClass="about-box">
+                           <children>
+                              <ImageView fitHeight="125.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../icons/chatchat.png" />
+                                 </image>
+                              </ImageView>
+                              <Label prefHeight="131.0" prefWidth="207.0" text="Experience when a single server serves multiple clients" textFill="#ffffffb2" wrapText="true">
+                                 <font>
+                                    <Font name="Matura MT Script Capitals" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="center-pane" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox id="dialogue_box" alignment="CENTER" prefHeight="742.0" prefWidth="1050.0" spacing="10.0" styleClass="dialogue-box">
+                     <children>
+                        <HBox fx:id="gName_box" alignment="CENTER" prefHeight="76.0" prefWidth="1050.0" spacing="10.0">
+                           <children>
+                              <Label fx:id="chatPP_label" prefHeight="66.0" prefWidth="90.0" styleClass="pp-label" />
+                              <VBox prefHeight="57.0" prefWidth="854.0">
+                                 <children>
+                                    <Label fx:id="gName_label" contentDisplay="CENTER" prefHeight="36.0" prefWidth="870.0" text="Lit Codders" textAlignment="CENTER" textFill="#b19696">
+                                       <font>
+                                          <Font name="Courier New Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="mNum_label" prefHeight="18.0" prefWidth="715.0" text="5 members, 2 online" textFill="#888888" />
+                                 </children>
+                              </VBox>
+                              <Button fx:id="gDetail_btn" alignment="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER">
+                                 <graphic>
+                                    <SVGPath content="M20 2H4c-1.103 0-2 .894-2 1.992v12.016C2 17.106 2.897 18 4 18h3v4l6.351-4H20c1.103 0 2-.894 2-1.992V3.992A1.998 1.998 0 0 0 20 2zm-6 11H7v-2h7v2zm3-4H7V7h10v2z" fill="WHITE" />
+                                 </graphic>
+                                 <HBox.margin>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </HBox>
+                        <ScrollPane fx:id="messScroll_pane" prefHeight="602.0" prefWidth="1038.0">
+                           <content>
+                              <VBox fx:id="message_vbox" alignment="CENTER" prefWidth="1011.0" spacing="20.0" styleClass="message-box" />
+                           </content>
+                        </ScrollPane>
+                        <HBox alignment="CENTER" prefHeight="62.0" prefWidth="1038.0" spacing="10.0" styleClass="messWrite_box">
+                           <children>
+                              <Button fx:id="attach_btn" mnemonicParsing="false" prefHeight="35.0" prefWidth="40.0">
+                                 <graphic>
+                                    <Group>
+                                       <children>
+                                          <SVGPath content="M453.258,44.087c-58.777-58.788-153.905-58.779-212.672,0L19.554,265.12c-6.527,6.521-6.527,17.106,0,23.628 c6.527,6.527,17.102,6.527,23.628,0L264.214,67.716c45.716-45.716,119.694-45.722,165.415,0 c45.702,45.702,45.722,119.699,0,165.421L208.598,454.169c-32.581,32.57-85.582,32.57-118.152,0 c-32.653-32.653-32.655-85.504,0-118.158l221.032-221.032c19.584-19.584,51.3-19.597,70.897,0 c19.538,19.544,19.538,51.353,0,70.897L161.335,406.906c-6.521,6.521-17.123,6.5-23.634,0c-6.517-6.517-6.517-17.117,0-23.634 l197.404-197.404c6.527-6.521,6.527-17.106,0-23.628c-6.527-6.527-17.102-6.527-23.628,0L114.072,359.644 c-19.549,19.544-19.549,51.348,0,70.897c19.547,19.536,51.354,19.542,70.891-0.006l221.038-221.032 c32.57-32.576,32.57-85.577,0-118.152c-32.652-32.652-85.506-32.658-118.152,0L66.815,312.381 c-45.716,45.705-45.722,119.705,0,165.415c45.603,45.603,119.806,45.605,165.409,0l221.032-221.032 C512.033,197.99,512.036,102.865,453.258,44.087z" fill="WHITE" scaleX="0.05" scaleY="0.05" stroke="WHITE" strokeMiterLimit="0.0" strokeType="INSIDE" />
+                                       </children>
+                                    </Group>
+                                 </graphic>
+                              </Button>
+                              <TextField fx:id="message_field" prefHeight="47.0" prefWidth="858.0" promptText="Message ...">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </TextField>
+                              <Button fx:id="send_btn" mnemonicParsing="false" prefHeight="45.0" prefWidth="56.0">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icons/send.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="4.0" right="4.0" top="4.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <ScrollPane layoutX="338.0" layoutY="87.0" prefHeight="720.0" prefWidth="420.0" visible="false">
+         <content>
+            <VBox prefHeight="712.0" prefWidth="402.0" style="-fx-background-color: cyan;" visible="false" />
+         </content>
+      </ScrollPane>
+   </children>
+   <padding>
+      <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+   </padding>
+</AnchorPane>
