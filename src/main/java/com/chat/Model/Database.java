@@ -1,6 +1,11 @@
 package com.chat.Model;
 
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.chat.utilities.Client;
+
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -49,18 +54,22 @@ public class Database {
             st.executeUpdate(sql);
             System.out.println("values Inserted!");
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println("Acount creation error!");
         }
     }
 
-    public ResultSet getData(String sql){
+    public static ArrayList<Client> getClientData(String sql){
+        ArrayList<Client> clients = new ArrayList<>();
         try(Statement st = connect().createStatement()) {
             ResultSet rs = st.executeQuery(sql);
-            return rs;
+            while(rs.next()){
+                Client client = new Client(rs.getInt(1), rs.getString(2), rs.getString(3), "xxxxxx", rs.getInt(7));
+                clients.add(client);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return clients;
     }
 
     public void updateDate(String sql){
@@ -69,5 +78,16 @@ public class Database {
 
     public void delData(String sql){
 
+    }
+
+    public static String getUserName() throws IOException, SQLException {
+        String sql = "SELECT * FROM client";
+        String username = null;
+        try (Statement st = connect().createStatement()) {
+            ResultSet rs = st.executeQuery(sql);
+            rs.next();
+            username = rs.getString("username");
+        }
+        return username;
     }
 }
