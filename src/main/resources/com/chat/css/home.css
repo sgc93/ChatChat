@@ -1,0 +1,229 @@
+.root {
+  -fx-background-color: rgba(36, 32, 59, 1);
+  -fx-background-radius: 15px;
+  -fx-border-color: white;
+  -fx-border-radius: 15px;
+  -fx-border-width: 1px;
+}
+/* -fx-background-color: rgba(32, 32, 32, 0.45);  */
+
+#header {
+  -fx-background-radius: 15px 15px 0 0;
+}
+
+#min_btn,
+#max_btn,
+#exit_btn,
+#close_btn,
+#menu_btn,
+#search_btn,
+#attach_btn {
+  -fx-background-color: transparent;
+}
+
+#close_btn {
+  -fx-background-radius: 0 15px 0 0;
+}
+
+#menu_btn {
+  -fx-background-radius: 15px 0 0 0;
+}
+
+#menu_btn:hover,
+#min_btn:hover,
+#max_btn:hover {
+  -fx-background-color: rgba(155, 155, 155, 0.3);
+}
+
+#exit_btn:hover {
+  -fx-background-color: rgba(74, 68, 107, 0.466);
+}
+
+#close_btn:hover {
+  -fx-background-color: red;
+}
+
+#search_box {
+  -fx-background-color: rgba(255, 255, 255, 0.0605);
+  -fx-background-radius: 15;
+}
+
+#search_field {
+  -fx-background-color: transparent;
+  -fx-background-radius: 10;
+  -fx-text-fill: white;
+  -fx-font-size: 14;
+}
+
+#search_btn:hover {
+  -fx-background-color: rgb(71, 64, 106);
+  -fx-background-radius: 100;
+}
+
+.scroll-pane {
+  -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+  -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar {
+  -fx-background-color: rgba(44, 44, 44, 0.96);
+  -fx-border-color: transparent;
+}
+
+.scroll-pane .thumb {
+  -fx-background-color: rgba(255, 255, 255, 0.094);
+  -fx-pref-height: 50;
+}
+
+/* dialogue area  */
+
+.center-pane {
+  -fx-background-color: rgba(58, 58, 58, 0.3);
+}
+
+.messWrite_box {
+  -fx-background-color: rgba(255, 255, 255, 0.0512);
+}
+
+#gName_box {
+  -fx-background-color: transparent;
+  -fx-border-color: rgba(255, 255, 255, 0.24);
+  -fx-border-width: 0 0 1 0;
+}
+
+#gDetail_btn {
+  -fx-background-color: rgba(255, 255, 255, 0.07);
+  -fx-background-radius: 100;
+}
+
+#message_field {
+  -fx-background-color: transparent;
+  -fx-text-fill: white;
+  -fx-border-color: rgb(90, 83, 130);
+  -fx-border-width: 0 0 0 2;
+}
+
+#send_btn {
+  -fx-background-color: transparent;
+}
+
+#send_btn:hover {
+  -fx-background-color: rgb(90, 83, 130);
+}
+
+/* hidden side and detail boxen  */
+
+.box {
+  -fx-background-color: rgba(58, 58, 58, 0.95);
+  -fx-background-radius: 15px;
+  -fx-border-color: rgba(255, 255, 255, 0.7);
+  -fx-border-radius: 15px;
+}
+
+.btns {
+  -fx-background-color: rgba(64, 64, 64, 1);
+  -fx-background-radius: 15px;
+  -fx-border-color: rgba(255, 255, 255, 0.081);
+  -fx-border-radius: 15px;
+  -fx-text-fill: rgba(255, 255, 255, 0.708);
+  -fx-padding: 10;
+}
+
+.btns:hover {
+  -fx-background-color: rgba(129, 129, 129, 0.817);
+  -fx-border-color: rgba(255, 255, 255, 0.134);
+  -fx-text-fill: rgba(255, 255, 255, 0.967);
+  -fx-font-weight: 680;
+}
+
+.spacer {
+  -fx-border-color: rgba(255, 255, 255, 0.72);
+  -fx-border-width: 0 0 1 0;
+}
+
+.about-box {
+  -fx-background-color: rgba(64, 64, 64, 1);
+}
+/* jhkhk 
+  
+  .body-hbox {
+    -fx-background-color: transparent;
+  }
+  
+  .chat-scroll {
+    -fx-background-color: transparent;
+  }
+  
+  #chat_vbox {
+    -fx-background-color: transparent;
+  }
+  
+  
+  .side-root {
+    -fx-background-color: transparent;
+    -fx-border-color: rgb(71, 65, 107);
+    -fx-border-width: 0 1 0 0;
+  }
+  
+  #menu_box {
+    -fx-background-color: rgba(36, 32, 59, 1);
+    -fx-border-color: rgba(255, 255, 255, 0.355);
+    -fx-border-width: 0 1 1 0;
+  }
+  
+  
+  .sidebar-btns:hover {
+    -fx-background-color: rgba(36, 32, 59, 1);
+  }
+  
+  
+  .side-pane {
+    -fx-background-color: rgba(32, 32, 32, 1);
+  }
+  
+  .sidebar {
+    -fx-background-color: transparent;
+  }
+  
+  
+  
+  .chatting-area {
+    -fx-backgruond-color: rgba(58, 58, 58, 0.3);
+  }
+  
+  
+  #group_detail_btn {
+    -fx-background-color: transparent;
+  }
+  
+  #group_detail_btn:hover {
+    -fx-background-color: rgba(36, 32, 59, 1);
+  }
+  
+  #chat_box {
+    -fx-background-color: rgba(50, 55, 95, 0.44);
+  }
+  
+  #message_box {
+    -fx-background-color: rgba(68, 62, 103, 1);
+  }
+  
+  
+  #message_vbox {
+    -fx-background-color: rgba(36, 32, 59, 1);
+    -fx-spacing: 10;
+  }
+  
+  */
+
+#footer {
+  -fx-background-color: rgba(62, 58, 90, 1);
+}
+
+#about_btn {
+  -fx-background-color: transparent;
+  -fx-text-fill: White;
+}

@@ -1,0 +1,65 @@
+.mess-box {
+  -fx-background-color: rgba(57, 74, 107, 0.465);
+  -fx-padding: 10;
+  -fx-max-width: 700;
+}
+
+.mess-label {
+  -fx-padding: 3;
+  -fx-text-fill: white;
+  -fx-font-family: "Aldrich";
+  -fx-max-width: 670;
+  -fx-wrap-text: true;
+}
+
+.name-label {
+  -fx-padding: 2;
+  -fx-font-weight: 800;
+  -fx-font-size: 15;
+  -fx-text-fill: rgba(205, 124, 65, 1);
+}
+
+.reply-label {
+  -fx-padding: 2;
+  -fx-font-weight: 400;
+  -fx-font-size: 15;
+  -fx-text-fill: rgba(0, 163, 255, 1);
+}
+
+.time-label {
+  -fx-padding: 2;
+  -fx-font-size: 15;
+  -fx-text-fill: rgba(161, 170, 179, 1);
+}
+
+#reply_btn {
+  -fx-background-color: transparent;
+  -fx-text-fill: rgba(161, 170, 179, 1);
+  -fx-border-color: rgba(161, 170, 179, 0.527);
+  -fx-border-width: 0 0 1 0;
+  -fx-padding: 0;
+}
+
+#reply_btn:hover {
+  -fx-text-fill: rgb(186, 220, 255);
+  -fx-border-color: rgb(161, 170, 179);
+}
+
+#pp_btn {
+  -fx-background-color: transparent;
+  -fx-background-radius: 100;
+  -fx-border-color: rgba(161, 170, 179, 0.353);
+  -fx-border-width: 2px;
+  -fx-border-radius: 100;
+  -fx-padding: 0;
+}
+
+#pp_btn:hover {
+  -fx-border-color: rgba(209, 232, 255, 0.353);
+}
+
+#pp_view {
+  -fx-fit-width: 30;
+  -fx-fit-height: 30;
+  -fx-padding: 0;
+}

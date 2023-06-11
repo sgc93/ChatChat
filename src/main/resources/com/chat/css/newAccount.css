@@ -1,5 +1,6 @@
 #root {
   -fx-background-color: rgba(36, 32, 59, 1);
+  -fx-background-radius: 10px;
 }
 
 #error_label {
@@ -43,4 +44,8 @@
 
 #unlock_btn:hover {
   -fx-background-color: rgba(86, 80, 120, 1);
+}
+
+#show_btn {
+  -fx-background-color: transparent;
 }

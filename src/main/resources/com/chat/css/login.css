@@ -1,13 +1,53 @@
-#header {
-  -fx-background-color: rgba(229, 229, 229, 0.08);
+.root {
+  -fx-background-color: rgba(36, 32, 59, 1);
+  -fx-border-color: white;
+  -fx-border-radius: 15px;
+  -fx-border-width: 1px;
 }
+/* 
+#header {
+  -fx-background-color: rgba(32, 32, 32, 0.45);
+} */
 
-#menu_btn {
+#menu_btn,
+#min_btn,
+#max_btn,
+#close_btn,
+#exit_btn {
   -fx-background-color: transparent;
 }
 
-.side-root {
+#menu_btn,
+#min_btn:hover,
+#max_btn:hover,
+#menu_btn:hover {
   -fx-background-color: rgba(36, 32, 59, 1);
+}
+
+#exit_btn:hover {
+  -fx-background-color: rgba(74, 68, 107, 0.466);
+}
+
+#close_btn:hover {
+  -fx-background-color: red;
+}
+/* jhkhk 
+
+.body-hbox {
+  -fx-background-color: transparent;
+}
+
+.chat-scroll {
+  -fx-background-color: transparent;
+}
+
+#chat_vbox {
+  -fx-background-color: transparent;
+}
+
+
+.side-root {
+  -fx-background-color: transparent;
   -fx-border-color: rgb(71, 65, 107);
   -fx-border-width: 0 1 0 0;
 }
@@ -27,46 +67,22 @@
   -fx-background-color: rgba(36, 32, 59, 1);
 }
 
-#min_btn,
-#max_btn,
-#close_btn,
-#exit_btn {
+
+.side-pane {
+  -fx-background-color: rgba(32, 32, 32, 1);
+}
+
+.sidebar {
   -fx-background-color: transparent;
 }
 
-#min_btn:hover,
-#max_btn:hover,
-#menu_btn:hover {
-  -fx-background-color: rgba(36, 32, 59, 1);
-}
-
-#exit_btn:hover {
-  -fx-background-color: rgba(74, 68, 107, 0.466);
-}
-
-#close_btn:hover {
-  -fx-background-color: red;
-}
-
-/* body bart : sidebar and dialogue box */
-#body {
-  -fx-background-color: rgba(36, 32, 59, 1);
-}
-
-/* sidebar  */
-
-#sidebar {
-  -fx-background-color: rgba(45, 40, 73, 1);
-  -fx-border-color: rgb(65, 59, 101);
-  -fx-border-width: 0 2 0 0;
-}
-
 #search_box {
-  -fx-background-color: rgb(55, 50, 85);
+  -fx-background-color: rgba(94, 87, 135, 0.53);
+  -fx-background-radius: 15;
 }
 
 #search_field {
-  -fx-background-color: rgba(94, 87, 135, 0.53);
+  -fx-background-color: transparent;
   -fx-background-radius: 10;
   -fx-text-fill: white;
   -fx-font-size: 14;
@@ -80,13 +96,15 @@
   -fx-background-color: rgb(71, 64, 106);
 }
 
-/* dialogue box  */
 
-#group_name_box {
+.chatting-area {
+  -fx-backgruond-color: rgba(58, 58, 58, 0.3);
+}
+
+#gName_box {
   -fx-background-color: transparent;
-  -fx-border-color: rgba(36, 32, 59, 1);
+  -fx-border-color: rgba(255, 255, 255, 0.24);
   -fx-border-width: 0 0 4 0;
-  /* -fx-effect: dropshadow(gaussian, white, 0, 5, 3, 5); */
 }
 
 #group_detail_btn {
@@ -120,7 +138,7 @@
   -fx-background-color: rgb(90, 83, 130);
 }
 
-/* footer part  */
+
 
 #footer {
   -fx-background-color: rgba(62, 58, 90, 1);
@@ -131,22 +149,29 @@
   -fx-text-fill: White;
 }
 
-/* chatting page  */
-.dialogue-box {
+
+.scroll-pane {
+  -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
   -fx-background-color: rgba(36, 32, 59, 1);
 }
 
-.dialogue-box .viewport {
+.scroll-pane .scroll-bar {
   -fx-background-color: rgba(36, 32, 59, 1);
 }
 
-.dialogue-box .scroll-bar {
-  -fx-background-color: rgba(36, 32, 59, 1);
-}
-
-.dialogue-box .thumb {
+.scroll-pane .thumb {
   -fx-background-color: rgba(75, 70, 104, 0.298);
 }
+
+#message_vbox {
+  -fx-background-color: rgba(36, 32, 59, 1);
+  -fx-spacing: 10;
+}
+
+*/
 
 .text-label {
   -fx-background-color: rgba(57, 74, 107, 0.465);
@@ -155,9 +180,4 @@
   -fx-text-fill: white;
   -fx-max-width: 700;
   -fx-wrap-text: true;
-}
-
-#message_vbox {
-  -fx-background-color: rgba(36, 32, 59, 1);
-  -fx-spacing: 10;
 }
