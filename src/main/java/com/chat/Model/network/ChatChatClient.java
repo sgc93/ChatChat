@@ -6,8 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.Scanner;
+
+import com.chat.controller.HomeController;
 
 public class ChatChatClient {
     private Socket socket;
@@ -18,34 +18,25 @@ public class ChatChatClient {
     public ChatChatClient(Socket socket, String username){
         try {
             this.socket = socket;
+            this.username = username;
             this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             this.out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            this.username = username;
         } catch (IOException e) {
             closeEverything(socket, in, out);
         }
     }
 
-    public void sendMessage(){
+    public void sendMessage(String message){
         try {
-            out.write(username);
+            out.write(username + " : " + message);
             out.newLine();
             out.flush();
-    
-            try (Scanner scanner = new Scanner(System.in)) {
-                while(socket.isConnected()){
-                    String messageToSend = scanner.nextLine();
-                    out.write(username + " : " + messageToSend);
-                    out.newLine();
-                    out.flush();
-                }
-            }
         } catch (IOException e) {
             closeEverything(socket, in, out);
         }
     }
 
-    public void listenForMessage(){
+    public void listenForMessage(HomeController homeController){
         new Thread(new Runnable(){
             String messageFromGroupchat;
 
@@ -54,7 +45,9 @@ public class ChatChatClient {
                 try {
                     while(socket.isConnected()){
                         messageFromGroupchat = in.readLine();
-                        System.out.println(messageFromGroupchat);
+                        if (messageFromGroupchat != null) {
+         homeController.showMessage(messageFromGroupchat);
+                        }
                     }
                 } catch (IOException e) {
                     closeEverything(socket, in, out);
@@ -78,16 +71,4 @@ public class ChatChatClient {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) throws UnknownHostException, IOException{
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Enter you username for the group chat : ");
-            String username = scanner.nextLine();
-            Socket socket = new Socket("localhost", 41621);
-            ChatChatClient client = new ChatChatClient(socket, username);
-            client.listenForMessage();
-            client.sendMessage();
-        }
-    }
-    
 }
