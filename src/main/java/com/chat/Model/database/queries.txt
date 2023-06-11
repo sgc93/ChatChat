@@ -1,0 +1,53 @@
+-- database: c:\Users\hp pavilion\Documents\JavaFx\project\ChatChat\src\main\java\com\chat\Model\database\profile.db
+
+-- Use the ▷ button in the top right corner to run the entire file.
+
+SELECT * FROM "client";
+
+
+-- CREATE TABLE client (
+--     client_id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     username VARCHAR(20) NOT NULL,
+--     password VARCHAR(50),
+--     phone VARCHAR(13),
+--     pp BLOB
+-- )
+
+-- CREATE TABLE savedMessages (
+--     message_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+--     client_id NOT NULL,
+--     sent_time TIME,
+--     text_content TEXT,
+--     file_content BLOB
+-- )
+
+-- CREATE TABLE chat(
+--     chat_id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     chat_name varchar(20),
+--     chat_bio,
+--     mem_num INTEGER NOT NULL,
+--     num_message INTEGER,
+--     num_audio INTEGER,
+--     num_video INTEGER,
+--     num_imge INTEGER,
+--     num_txt INTEGER
+-- )
+
+-- CREATE TABLE member(
+--     member_id INTEGER PRIMARY KEY AUTOINCREMENT,
+--     chat_id INTEGER,
+--     username VARCHAR(20) NOT NULL,
+--     phone VARCHAR(13),
+--     pp BLOB,
+--     CONSTRAINT fk_group FOREIGN KEY (chat_id) REFERENCES chat(chat_id)
+-- )
+
+CREATE TABLE message (
+    message_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chat_id INTEGER NOT NULL,
+    sender_id NOT NULL,
+    mtime TIME,
+    replyto VARCHAR(20),
+    CONSTRAINT fk_chat FOREIGN KEY (chat_id) REFERENCES chat(chat_id),
+    CONSTRAINT fk_member FOREIGN KEY (sender_id) REFERENCES member(member_id)
+)
