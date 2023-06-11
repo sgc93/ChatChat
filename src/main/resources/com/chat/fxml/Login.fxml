@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="487.0" spacing="20.0" stylesheets="@../css/newAccount.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chat.controller.LoginController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="42.0" spacing="10.0">
+         <children>
+            <Label fx:id="error_label" alignment="CENTER" prefHeight="42.0" prefWidth="392.0" textAlignment="CENTER" textFill="WHITE">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <font>
+                  <Font name="Lucida Sans Demibold Roman" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="close_btn" alignment="CENTER" minWidth="34.0" mnemonicParsing="false" onAction="#closeLoginStage" prefHeight="35.0" prefWidth="35.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+               <graphic>
+                  <SVGPath content="M6,18L18,6M6,6l12,12" fill="WHITE" stroke="WHITE" strokeWidth="3.0" />
+               </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/lock.png" />
+         </image></ImageView>
+      <Label text="Enter Your ChatChat Passcode" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="30.0" prefWidth="276.0" spacing="10.0">
+         <children>
+            <PasswordField fx:id="pass_field" alignment="CENTER" prefHeight="28.0" prefWidth="234.0" promptText="Passcode" styleClass="field" />
+            <Button fx:id="show_btn" mnemonicParsing="false" onAction="#showPassword">
+               <graphic>
+                  <SVGPath fx:id="eye" content="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#ffffff63" stroke="WHITE" strokeType="INSIDE" />
+               </graphic>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets left="100.0" right="50.0" />
+         </VBox.margin>
+         <padding>
+            <Insets right="1.0" />
+         </padding>
+      </HBox>
+      <Button fx:id="unlock_btn" mnemonicParsing="false" onAction="#unlock" text="Unlock" />
+   </children>
+   <padding>
+      <Insets left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
