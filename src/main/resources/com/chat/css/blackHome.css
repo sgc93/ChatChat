@@ -1,0 +1,229 @@
+.root {
+  -fx-background-color: white;
+  -fx-background-radius: 15px;
+  -fx-border-color: black;
+  -fx-border-radius: 15px;
+  -fx-border-width: 1px;
+}
+
+#header {
+  -fx-background-radius: 15px 15px 0 0;
+}
+
+#min_btn,
+#max_btn,
+#exit_btn,
+#close_btn,
+#menu_btn,
+#search_btn,
+#attach_btn,
+#closeLeft_btn {
+  -fx-background-color: transparent;
+}
+
+#close_btn {
+  -fx-background-radius: 0 15px 0 0;
+}
+
+#menu_btn {
+  -fx-background-radius: 15px 0 0 0;
+}
+
+#menu_btn:hover,
+#min_btn:hover,
+#max_btn:hover {
+  -fx-background-color: rgba(155, 155, 155, 0.3);
+}
+
+#exit_btn:hover,
+#closeLeft_btn:hover {
+  -fx-background-color: rgba(74, 68, 107, 0.466);
+}
+
+#close_btn:hover {
+  -fx-background-color: red;
+}
+
+#search_box {
+  -fx-background-color: rgba(0, 0, 0, 0.0605);
+  -fx-background-radius: 15;
+}
+
+#search_field {
+  -fx-background-color: transparent;
+  -fx-background-radius: 10;
+  -fx-text-fill: black;
+  -fx-font-size: 14;
+}
+
+#search_btn:hover {
+  -fx-background-color: rgb(71, 64, 106);
+  -fx-background-radius: 100;
+}
+
+.scroll-pane {
+  -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+  -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar {
+  -fx-background-color: rgba(44, 44, 44, 0.96);
+  -fx-border-color: transparent;
+}
+
+.scroll-pane .thumb {
+  -fx-background-color: rgba(0, 0, 0, 0.094);
+  -fx-pref-height: 50;
+}
+
+/* dialogue area  */
+
+.center-pane {
+  -fx-background-color: rgba(58, 58, 58, 0.3);
+}
+
+.messWrite_box {
+  -fx-background-color: rgba(0, 0, 0, 0.0512);
+}
+
+#gName_box {
+  -fx-background-color: transparent;
+  -fx-border-color: rgba(0, 0, 0, 0.24);
+  -fx-border-width: 0 0 1 0;
+}
+
+#gDetail_btn {
+  -fx-background-color: rgba(0, 0, 0, 0.07);
+  -fx-background-radius: 100;
+}
+
+#message_field {
+  -fx-background-color: transparent;
+  -fx-text-fill: black;
+  -fx-border-color: rgb(90, 83, 130);
+  -fx-border-width: 0 0 0 2;
+}
+
+#send_btn {
+  -fx-background-color: transparent;
+}
+
+#send_btn:hover {
+  -fx-background-color: rgb(90, 83, 130);
+}
+
+/* hidden side and detail boxes  */
+
+.box {
+  -fx-background-color: white;
+  -fx-background-radius: 15px;
+  -fx-border-color: rgba(0, 0, 0, 0.7);
+  -fx-border-radius: 15px;
+}
+
+.btns {
+  -fx-background-color: rgba(0, 0, 0, 0.0605);
+  -fx-background-radius: 15px;
+  -fx-border-color: rgba(0, 0, 0, 0.081);
+  -fx-border-radius: 15px;
+  -fx-text-fill: rgba(0, 0, 0, 0.708);
+  -fx-padding: 10;
+}
+
+.btns:hover {
+  -fx-background-color: rgba(129, 129, 129, 0.48);
+  -fx-border-color: rgba(0, 0, 0, 0.134);
+  -fx-text-fill: rgba(0, 0, 0, 0.967);
+  font-weight: 680;
+}
+
+.spacer {
+  -fx-border-color: rgba(0, 0, 0, 0.72);
+  -fx-border-width: 0 0 1 0;
+}
+
+.about-box {
+  -fx-background-color: rgba(0, 0, 0, 0.0605);
+}
+
+/* new message indicator  */
+
+#down_btn {
+  -fx-background-color: rgba(0, 0, 0, 0.283);
+  -fx-background-radius: 150;
+}
+
+#newMess_label {
+  -fx-background-color: rgb(0, 200, 255);
+  -fx-background-radius: 200;
+}
+
+/* sidebar children boxes  */
+/* account box  */
+
+#addAcc_btn {
+  -fx-background-color: transparent;
+}
+
+.svg-add:hover {
+  -fx-fill: black;
+}
+/* profile box  */
+
+#change_btn {
+  -fx-background-color: transparent;
+  -fx-text-fill: rgba(0, 0, 0, 0.708);
+}
+
+#change_btn:hover {
+  -fx-text-fill: rgba(0, 0, 0, 0.907);
+}
+
+/* setting  */
+
+#theme_btn,
+.eye-btn {
+  -fx-background-color: transparent;
+}
+
+#theme_btn:hover {
+  -fx-background-color: rgba(129, 129, 129, 0.658);
+}
+
+/* ask box  */
+
+.text-area {
+  -fx-background-color: rgba(0, 0, 0, 0.0605);
+  -fx-text-fill: rgba(0, 0, 0, 0.787);
+  -fx-font-size: 15;
+}
+
+.text-area .content {
+  -fx-background-color: white;
+}
+
+/* left sidebar  */
+
+.subtopic-label {
+  -fx-border-color: rgba(0, 0, 0, 0.72);
+  -fx-border-width: 0 0 1 0;
+}
+
+#footer {
+  -fx-background-color: rgba(62, 58, 90, 1);
+}
+
+#about_btn {
+  -fx-background-color: transparent;
+  -fx-text-fill: black;
+}
+
+.field {
+  -fx-background-color: transparent;
+  -fx-border-color: rgba(86, 80, 120, 1);
+  -fx-border-width: 0 0 2 0;
+  -fx-text-fill: black;
+}
