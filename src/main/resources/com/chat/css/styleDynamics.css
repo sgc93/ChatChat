@@ -50,8 +50,8 @@
   -fx-background-radius: 100;
   -fx-border-color: rgba(161, 170, 179, 0.353);
   -fx-border-width: 2px;
-  -fx-border-radius: 100;
-  -fx-padding: 0;
+  -fx-border-radius: 10;
+  -fx-padding: 1;
 }
 
 #pp_btn:hover {
