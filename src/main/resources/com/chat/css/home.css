@@ -18,6 +18,7 @@
 #menu_btn,
 #search_btn,
 #attach_btn,
+#selfAttach_btn,
 #closeLeft_btn {
   -fx-background-color: transparent;
 }
@@ -101,18 +102,21 @@
   -fx-background-radius: 100;
 }
 
-#message_field {
+#message_field,
+#selfMessage_field {
   -fx-background-color: transparent;
   -fx-text-fill: white;
   -fx-border-color: rgb(90, 83, 130);
   -fx-border-width: 0 0 0 2;
 }
 
-#send_btn {
+#send_btn,
+#sSend_btn {
   -fx-background-color: transparent;
 }
 
-#send_btn:hover {
+#send_btn:hover,
+#sSend_btn:hover {
   -fx-background-color: rgb(90, 83, 130);
 }
 
