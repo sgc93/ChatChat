@@ -17,7 +17,8 @@
 #close_btn,
 #menu_btn,
 #search_btn,
-#attach_btn {
+#attach_btn,
+#closeLeft_btn {
   -fx-background-color: transparent;
 }
 
@@ -35,7 +36,8 @@
   -fx-background-color: rgba(155, 155, 155, 0.3);
 }
 
-#exit_btn:hover {
+#exit_btn:hover,
+#closeLeft_btn:hover {
   -fx-background-color: rgba(74, 68, 107, 0.466);
 }
 
@@ -117,14 +119,14 @@
 /* hidden side and detail boxen  */
 
 .box {
-  -fx-background-color: rgba(58, 58, 58, 0.95);
+  -fx-background-color: #24203b;
   -fx-background-radius: 15px;
   -fx-border-color: rgba(255, 255, 255, 0.7);
   -fx-border-radius: 15px;
 }
 
 .btns {
-  -fx-background-color: rgba(64, 64, 64, 1);
+  -fx-background-color: rgba(255, 255, 255, 0.0605);
   -fx-background-radius: 15px;
   -fx-border-color: rgba(255, 255, 255, 0.081);
   -fx-border-radius: 15px;
@@ -133,10 +135,10 @@
 }
 
 .btns:hover {
-  -fx-background-color: rgba(129, 129, 129, 0.817);
+  -fx-background-color: rgba(129, 129, 129, 0.48);
   -fx-border-color: rgba(255, 255, 255, 0.134);
   -fx-text-fill: rgba(255, 255, 255, 0.967);
-  -fx-font-weight: 680;
+  font-weight: 680;
 }
 
 .spacer {
@@ -145,79 +147,71 @@
 }
 
 .about-box {
-  -fx-background-color: rgba(64, 64, 64, 1);
+  -fx-background-color: rgba(255, 255, 255, 0.0605);
 }
-/* jhkhk 
-  
-  .body-hbox {
-    -fx-background-color: transparent;
-  }
-  
-  .chat-scroll {
-    -fx-background-color: transparent;
-  }
-  
-  #chat_vbox {
-    -fx-background-color: transparent;
-  }
-  
-  
-  .side-root {
-    -fx-background-color: transparent;
-    -fx-border-color: rgb(71, 65, 107);
-    -fx-border-width: 0 1 0 0;
-  }
-  
-  #menu_box {
-    -fx-background-color: rgba(36, 32, 59, 1);
-    -fx-border-color: rgba(255, 255, 255, 0.355);
-    -fx-border-width: 0 1 1 0;
-  }
-  
-  
-  .sidebar-btns:hover {
-    -fx-background-color: rgba(36, 32, 59, 1);
-  }
-  
-  
-  .side-pane {
-    -fx-background-color: rgba(32, 32, 32, 1);
-  }
-  
-  .sidebar {
-    -fx-background-color: transparent;
-  }
-  
-  
-  
-  .chatting-area {
-    -fx-backgruond-color: rgba(58, 58, 58, 0.3);
-  }
-  
-  
-  #group_detail_btn {
-    -fx-background-color: transparent;
-  }
-  
-  #group_detail_btn:hover {
-    -fx-background-color: rgba(36, 32, 59, 1);
-  }
-  
-  #chat_box {
-    -fx-background-color: rgba(50, 55, 95, 0.44);
-  }
-  
-  #message_box {
-    -fx-background-color: rgba(68, 62, 103, 1);
-  }
-  
-  
-  #message_vbox {
-    -fx-background-color: rgba(36, 32, 59, 1);
-    -fx-spacing: 10;
-  }
-  
-  */
+
+/* new message indicator  */
+
+#down_btn {
+  -fx-background-color: rgba(255, 255, 255, 0.283);
+  -fx-background-radius: 150;
+}
+
+#newMess_label {
+  -fx-background-color: rgb(0, 200, 255);
+  -fx-background-radius: 200;
+}
+
+/* sidebar children boxen  */
+/* account box  */
+
+#addAcc_btn {
+  -fx-background-color: transparent;
+}
+
+.svg-add:hover {
+  -fx-fill: white;
+}
+/* profile box  */
+
+#change_btn {
+  -fx-background-color: transparent;
+  -fx-text-fill: rgba(255, 255, 255, 0.708);
+}
+
+#change_btn:hover {
+  -fx-text-fill: rgba(255, 255, 255, 0.907);
+}
+
+/* setting  */
+
+#theme_btn,
+.eye-btn {
+  -fx-background-color: transparent;
+}
+
+#theme_btn:hover {
+  -fx-background-color: rgba(129, 129, 129, 0.658);
+}
+
+/* ask box  */
+
+.text-area {
+  -fx-background-color: rgba(255, 255, 255, 0.0605);
+  -fx-text-fill: rgba(255, 255, 255, 0.787);
+  -fx-font-size: 15;
+}
+
+.text-area .content {
+  -fx-background-color: black;
+}
+
+/* left sidebar  */
+
+.subtopic-label {
+  -fx-border-color: rgba(255, 255, 255, 0.72);
+  -fx-border-width: 0 0 1 0;
+}
 
 #footer {
   -fx-background-color: rgba(62, 58, 90, 1);
@@ -226,4 +220,11 @@
 #about_btn {
   -fx-background-color: transparent;
   -fx-text-fill: White;
+}
+
+.field {
+  -fx-background-color: transparent;
+  -fx-border-color: rgba(86, 80, 120, 1);
+  -fx-border-width: 0 0 2 0;
+  -fx-text-fill: white;
 }
