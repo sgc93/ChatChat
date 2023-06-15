@@ -4,7 +4,9 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,13 +18,13 @@
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" styleClass="root" stylesheets="@../css/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chat.controller.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" styleClass="root" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chat.controller.HomeController">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0">
          <top>
             <HBox fx:id="header" alignment="CENTER" prefHeight="29.0" prefWidth="700.0" spacing="10.0" style="-fx-background-radius: 15 15 0 0;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="menu_btn" mnemonicParsing="false" onAction="#showMenu" prefHeight="50.0" prefWidth="50.0">
+                  <Button fx:id="menu_btn" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
                      <graphic>
                         <SVGPath content="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" fill="WHITE" fillRule="EVEN_ODD" stroke="WHITE" strokeLineCap="ROUND" />
                      </graphic>
@@ -104,9 +106,9 @@
                      <content>
                         <VBox fx:id="chat_vbox" alignment="TOP_CENTER" prefWidth="320.0" spacing="15.0">
                            <children>
-                              <HBox fx:id="chat_box" alignment="CENTER" prefHeight="58.0" prefWidth="306.0" spacing="3.0" styleClass="chat-box">
+                              <HBox fx:id="self_chat" alignment="CENTER" onMouseClicked="#showSelfChat" prefHeight="58.0" prefWidth="306.0" spacing="3.0" style="-fx-background-color: rgba(255, 255, 255, 0.0605);" styleClass="chat-box">
                                  <children>
-                                    <Label prefHeight="42.0" prefWidth="14.0" textFill="#60cdff" />
+                                    <Label fx:id="checker" prefHeight="42.0" prefWidth="14.0" style="-fx-background-color: #60CDFF; -fx-background-radius: 25;" textFill="#60cdff" visible="false" />
                                     <Label fx:id="pp_label" alignment="CENTER" prefHeight="62.0" prefWidth="65.0" styleClass="pp-label" textAlignment="CENTER" textFill="#c4e3ff">
                                        <font>
                                           <Font name="Cooper Black" size="22.0" />
@@ -129,9 +131,9 @@
                                     </VBox>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="58.0" prefWidth="306.0" spacing="3.0" style="-fx-background-color: rgba(255, 255, 255, 0.0605);" styleClass="chat-box">
+                              <HBox fx:id="group_chat" alignment="CENTER" onMouseClicked="#showGroupChat" prefHeight="58.0" prefWidth="306.0" spacing="3.0" style="-fx-background-color: rgba(255, 255, 255, 0.0605);" styleClass="chat-box">
                                  <children>
-                                    <Label prefHeight="42.0" prefWidth="14.0" style="-fx-background-color: #60CDFF; -fx-background-radius: 25;" textFill="#60cdff" />
+                                    <Label fx:id="gChecker" prefHeight="42.0" prefWidth="14.0" style="-fx-background-color: #60CDFF; -fx-background-radius: 25;" textFill="#60cdff" />
                                     <Label fx:id="gPP_label" alignment="CENTER" prefHeight="62.0" prefWidth="65.0" styleClass="pp-label" text="GN" textAlignment="CENTER" textFill="#c4e3ff">
                                        <font>
                                           <Font name="Cooper Black" size="22.0" />
@@ -163,7 +165,7 @@
                         <Insets right="3.0" />
                      </padding>
                   </ScrollPane>
-                  <VBox fx:id="menu_box" alignment="TOP_CENTER" prefHeight="743.0" prefWidth="352.0" spacing="15.0" styleClass="box" visible="false">
+                  <VBox fx:id="menu_box" alignment="TOP_CENTER" onMouseClicked="#closeSideBox" prefHeight="743.0" prefWidth="352.0" spacing="15.0" styleClass="box" visible="false">
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="340.0">
                            <children>
@@ -184,13 +186,13 @@
                               <Insets right="3.0" />
                            </padding>
                         </HBox>
-                        <ImageView fitHeight="79.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="pImg" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/person.png" />
                            </image>
                         </ImageView>
-                        <Label text="Abc" textFill="#ffffffb2" />
-                        <Button alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" prefWidth="300.0" styleClass="btns" text="Accounts">
+                        <Label fx:id="uname_label" textFill="#ffffffb2" />
+                        <Button fx:id="acc_btn" alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" onAction="#showAccountBox" prefWidth="300.0" styleClass="btns" text="Accounts">
                            <padding>
                               <Insets left="2.0" />
                            </padding>
@@ -198,7 +200,7 @@
                               <Font name="Comic Sans MS" size="18.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" prefWidth="300.0" styleClass="btns" text="Edit  Profile" textAlignment="CENTER">
+                        <Button fx:id="editPP_btn" alignment="CENTER" graphicTextGap="20.0" mnemonicParsing="false" prefWidth="300.0" styleClass="btns" text="Edit  Profile" textAlignment="CENTER">
                            <padding>
                               <Insets left="2.0" />
                            </padding>
@@ -206,7 +208,7 @@
                               <Font name="Comic Sans MS" size="18.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" graphicTextGap="25.0" mnemonicParsing="false" prefWidth="300.0" styleClass="btns" text="Setting" textAlignment="CENTER">
+                        <Button fx:id="setting_btn" alignment="CENTER" graphicTextGap="25.0" mnemonicParsing="false" onAction="#openSetting" prefWidth="300.0" styleClass="btns" text="Setting" textAlignment="CENTER">
                            <padding>
                               <Insets left="2.0" />
                            </padding>
@@ -214,7 +216,7 @@
                               <Font name="Comic Sans MS" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="setting_btn" alignment="CENTER" graphicTextGap="32.0" mnemonicParsing="false" onAction="#changeToLightMode" prefWidth="300.0" styleClass="btns" text="Ask" textAlignment="CENTER">
+                        <Button fx:id="setting_btn" alignment="CENTER" graphicTextGap="32.0" mnemonicParsing="false" prefWidth="300.0" styleClass="btns" text="Ask" textAlignment="CENTER">
                            <padding>
                               <Insets left="2.0" />
                            </padding>
@@ -276,7 +278,7 @@
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <ScrollPane fx:id="messScroll_pane" prefHeight="602.0" prefWidth="1038.0">
+                        <ScrollPane fx:id="messScroll_pane" prefHeight="602.0" prefWidth="1038.0" styleClass="text-area">
                            <content>
                               <VBox fx:id="message_vbox" alignment="CENTER" prefWidth="1011.0" spacing="20.0" styleClass="message-box" />
                            </content>
@@ -316,13 +318,234 @@
                         </HBox>
                      </children>
                   </VBox>
+                  <VBox fx:id="acc_box" alignment="CENTER" layoutY="198.0" prefHeight="250.0" prefWidth="232.0" spacing="5.0" styleClass="box" visible="false">
+                     <children>
+                        <ScrollPane prefHeight="200.0" prefWidth="239.0">
+                           <content>
+                              <VBox fx:id="acc_list" prefWidth="219.0" />
+                           </content>
+                        </ScrollPane>
+                        <Button fx:id="addAcc_btn" mnemonicParsing="false" onAction="#addNewAccount">
+                           <graphic>
+                              <SVGPath fx:id="accSvg_path" content="M2,21h8a1,1,0,0,0,0-2H3.071A7.011,7.011,0,0,1,10,13a5.044,5.044,0,1,0-3.377-1.337A9.01,9.01,0,0,0,1,20,1,1,0,0,0,2,21ZM10,5A3,3,0,1,1,7,8,3,3,0,0,1,10,5ZM23,16a1,1,0,0,1-1,1H19v3a1,1,0,0,1-2,0V17H14a1,1,0,0,1,0-2h3V12a1,1,0,0,1,2,0v3h3A1,1,0,0,1,23,16Z" fill="#ffffffb1" styleClass="svg-add" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="profile_box" alignment="TOP_CENTER" layoutY="195.0" prefHeight="359.0" prefWidth="314.0" spacing="10.0" styleClass="box" visible="false">
+                     <children>
+                        <Label fx:id="note_label" alignment="TOP_LEFT" prefHeight="63.0" prefWidth="294.0" text="Profile Updating ..." textFill="#ffffff9c" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <ImageView fx:id="pp_img" fitHeight="110.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true" />
+                              <Button fx:id="change_btn" mnemonicParsing="false" text="&lt; Change" />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="60.0" right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <TextField fx:id="username_field" prefHeight="36.0" prefWidth="313.0" styleClass="field" stylesheets="@../css/newAccount.css">
+                           <VBox.margin>
+                              <Insets left="30.0" right="30.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Label text="Username" textFill="#ffffff94" />
+                        <Button fx:id="savePPchanges_btn" mnemonicParsing="false" onAction="#saveProfileChanges" prefHeight="40.0" prefWidth="76.0" styleClass="btns" text="Save">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin></Button>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="setting_box" alignment="CENTER" layoutY="258.0" onMouseClicked="#closePasswordBox" prefHeight="141.0" prefWidth="282.0" spacing="10.0" styleClass="box" visible="false">
+                     <children>
+                        <Button fx:id="changePass_btn" mnemonicParsing="false" onAction="#changePassword" prefHeight="46.0" prefWidth="240.0" styleClass="btns" text="Change Password" />
+                        <HBox prefHeight="29.0" prefWidth="240.0" spacing="10.0" styleClass="btns">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="161.0" text="Dark theme" textFill="#ffffffaf">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Button fx:id="theme_btn" mnemonicParsing="false" onAction="#changeThemeColor" prefHeight="10.0" prefWidth="36.0">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <graphic>
+                                    <SVGPath fx:id="mode_svg" content="M17,7H7A5,5,0,0,0,7,17H17A5,5,0,0,0,17,7Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,17,15Z" fill="#ffffffdb" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="password_box" alignment="TOP_CENTER" layoutX="66.0" layoutY="314.0" prefHeight="330.0" prefWidth="298.0" spacing="20.0" styleClass="box" visible="false">
+                     <children>
+                        <Label fx:id="psNote_label" alignment="TOP_LEFT" prefHeight="65.0" prefWidth="276.0" text="Password Updating ..." textFill="#ffffffbc">
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding></Label>
+                        <HBox alignment="CENTER" prefHeight="54.0" prefWidth="276.0" spacing="10.0">
+                           <children>
+                              <PasswordField fx:id="oldPass_field" alignment="CENTER" prefHeight="28.0" prefWidth="200.0" promptText="Old Password" styleClass="field" />
+                              <Button fx:id="showOldPass" mnemonicParsing="false" onAction="#ShowOldPassword" styleClass="eye-btn">
+                                 <graphic>
+                                    <SVGPath content="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#ffffffe1" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="54.0" prefWidth="276.0" spacing="10.0">
+                           <children>
+                              <PasswordField fx:id="newPass_field" alignment="CENTER" prefHeight="28.0" prefWidth="202.0" promptText="New password" styleClass="field" />
+                              <Button fx:id="showNewPass" mnemonicParsing="false" onAction="#showNewPass" styleClass="eye-btn">
+                                 <graphic>
+                                    <SVGPath content="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#ffffffe1" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="54.0" prefWidth="276.0" spacing="10.0">
+                           <children>
+                              <PasswordField fx:id="cnpass_field" alignment="CENTER" prefHeight="28.0" prefWidth="204.0" promptText="Confirm New Password" styleClass="field" />
+                              <Button fx:id="showCNPass" mnemonicParsing="false" onAction="#showConfirmedPass" styleClass="eye-btn">
+                                 <graphic>
+                                    <SVGPath content="M6.30147 15.5771C4.77832 14.2684 3.6904 12.7726 3.18002 12C3.6904 11.2274 4.77832 9.73158 6.30147 8.42294C7.87402 7.07185 9.81574 6 12 6C14.1843 6 16.1261 7.07185 17.6986 8.42294C19.2218 9.73158 20.3097 11.2274 20.8201 12C20.3097 12.7726 19.2218 14.2684 17.6986 15.5771C16.1261 16.9282 14.1843 18 12 18C9.81574 18 7.87402 16.9282 6.30147 15.5771ZM12 4C9.14754 4 6.75717 5.39462 4.99812 6.90595C3.23268 8.42276 2.00757 10.1376 1.46387 10.9698C1.05306 11.5985 1.05306 12.4015 1.46387 13.0302C2.00757 13.8624 3.23268 15.5772 4.99812 17.0941C6.75717 18.6054 9.14754 20 12 20C14.8525 20 17.2429 18.6054 19.002 17.0941C20.7674 15.5772 21.9925 13.8624 22.5362 13.0302C22.947 12.4015 22.947 11.5985 22.5362 10.9698C21.9925 10.1376 20.7674 8.42276 19.002 6.90595C17.2429 5.39462 14.8525 4 12 4ZM10 12C10 10.8954 10.8955 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14C10.8955 14 10 13.1046 10 12ZM12 8C9.7909 8 8.00004 9.79086 8.00004 12C8.00004 14.2091 9.7909 16 12 16C14.2092 16 16 14.2091 16 12C16 9.79086 14.2092 8 12 8Z" fill="#ffffffe1" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="5.0" right="5.0" />
+                           </padding>
+                        </HBox>
+                        <Button fx:id="changePass_btn" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" styleClass="btns" text="Change" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <AnchorPane fx:id="newMess_box" layoutX="966.0" layoutY="579.0" prefHeight="48.0" prefWidth="68.0" visible="false">
+                     <children>
+                        <Button fx:id="down_btn" layoutX="9.0" layoutY="39.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="46.0">
+                           <graphic>
+                              <SVGPath content="M12 3C12.5523 3 13 3.44772 13 4V17.5858L18.2929 12.2929C18.6834 11.9024 19.3166 11.9024 19.7071 12.2929C20.0976 12.6834 20.0976 13.3166 19.7071 13.7071L12.7071 20.7071C12.3166 21.0976 11.6834 21.0976 11.2929 20.7071L4.29289 13.7071C3.90237 13.3166 3.90237 12.6834 4.29289 12.2929C4.68342 11.9024 5.31658 11.9024 5.70711 12.2929L11 17.5858V4C11 3.44772 11.4477 3 12 3Z" fill="#ffffffb9" />
+                           </graphic>
+                        </Button>
+                        <Label fx:id="newMess_label" alignment="CENTER" layoutX="32.0" layoutY="25.0" prefHeight="26.0" prefWidth="29.0" text="13" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+                  <VBox fx:id="ask_box" alignment="CENTER" layoutX="2.0" layoutY="379.0" prefHeight="256.0" prefWidth="282.0" spacing="10.0" styleClass="box" visible="false">
+                     <children>
+                        <TextArea fx:id="ask_field" prefHeight="200.0" prefWidth="266.0" promptText="your question ..." styleClass="text-area" wrapText="true" />
+                        <Button fx:id="sendQ_btn" mnemonicParsing="false" onAction="#sendQuestion" prefHeight="40.0" prefWidth="62.0" styleClass="btns" text="Send" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
                </children>
             </AnchorPane>
          </center>
       </BorderPane>
-      <ScrollPane layoutX="338.0" layoutY="87.0" prefHeight="720.0" prefWidth="420.0" visible="false">
+      <ScrollPane fx:id="gDetail_box" layoutX="1024.0" layoutY="97.0" prefHeight="703.0" prefWidth="376.0" styleClass="box" visible="false">
          <content>
-            <VBox prefHeight="712.0" prefWidth="402.0" style="-fx-background-color: cyan;" visible="false" />
+            <VBox alignment="TOP_CENTER" prefHeight="712.0" prefWidth="355.0" spacing="10.0">
+               <children>
+                  <HBox prefHeight="10.0" prefWidth="335.0">
+                     <children>
+                        <Button fx:id="closeLeft_btn" mnemonicParsing="false" onAction="#closeGroupDetail" prefWidth="31.0">
+                           <graphic>
+                              <SVGPath content="M5.29289,5.29289C5.68342,4.90237,6.31658,4.90237,6.70711,5.29289L12,10.5858L17.2929,5.29289C17.6834,4.90237,18.3166,4.90237,18.7071,5.29289C19.0976,5.68342,19.0976,6.31658,18.7071,6.70711L13.4142,12L18.7071,17.2929C19.0976,17.6834,19.0976,18.3166,18.7071,18.7071C18.3166,19.0976,17.6834,19.0976,17.2929,18.7071L12,13.4142L6.70711,18.7071C6.31658,19.0976,5.68342,19.0976,5.29289,18.7071C4.90237,18.3166,4.90237,17.6834,5.29289,17.2929L10.5858,12L5.29289,6.70711C4.90237,6.31658,4.90237,5.68342,5.29289,5.29289Z" fill="WHITE" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <ImageView fitHeight="104.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../../../Pictures/frame%201.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="202.0" text="Group Name" textFill="#fffffff0">
+                     <font>
+                        <Font name="Footlight MT Light" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="360.0" styleClass="subtopic-label" text="Shared Mesages" textFill="#f5f5f5dd">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="31.0" prefWidth="265.0" text="110 chat messages" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="31.0" prefWidth="266.0" text="30 audio files" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="31.0" prefWidth="267.0" text="65 video files" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="31.0" prefWidth="266.0" text="40 image files" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="360.0" styleClass="subtopic-label" text="Group Members" textFill="#f5f5f5dd">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <VBox prefWidth="335.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="343.0" styleClass="btns" text="Abc" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></VBox>
          </content>
       </ScrollPane>
    </children>
