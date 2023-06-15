@@ -26,9 +26,21 @@ public class ChatChatClient {
         }
     }
 
+    public void sendUsernameToServer(String username) {
+        try {
+            out.write(username);
+            out.newLine();
+            out.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public void sendMessage(String message){
         try {
             out.write(username + " : " + message);
+            System.out.println(username + " : " + message);
             out.newLine();
             out.flush();
         } catch (IOException e) {
@@ -44,12 +56,14 @@ public class ChatChatClient {
             public void run() {
                 try {
                     while(socket.isConnected()){
+                        System.out.println("hey, it is Connectde!");
                         messageFromGroupchat = in.readLine();
                         if (messageFromGroupchat != null) {
-         homeController.showMessage(messageFromGroupchat);
+                            homeController.showMessage(messageFromGroupchat);
                         }
                     }
                 } catch (IOException e) {
+                    System.out.println("Not Connected!");
                     closeEverything(socket, in, out);
                 }
             }

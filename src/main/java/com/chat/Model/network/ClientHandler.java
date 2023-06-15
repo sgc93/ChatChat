@@ -22,8 +22,7 @@ public class ClientHandler implements Runnable {
             this.out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
             this.username = in.readLine();
             chs.add(this);
-            broadcastMessage("Server: " + username + " has joined the group!");
-            
+            broadcastMessage(username + " has joined the group!");
         } catch (IOException e) {
            closeEverything(socket, in, out);
         }
@@ -35,8 +34,10 @@ public class ClientHandler implements Runnable {
         while(socket.isConnected()){
             try {
                 client_message = in.readLine();
+                System.out.println(client_message);
                 broadcastMessage(client_message);
             } catch (IOException e) {
+                System.out.println("client is not connected");
                 closeEverything(socket, in, out);
                 break;
             }
@@ -59,7 +60,7 @@ public class ClientHandler implements Runnable {
 
     public void removeClient(){
         chs.remove(this);
-        broadcastMessage("Server: " + username + " has left the group!");
+        broadcastMessage(username + " has left the group!");
     }
 
     public void closeEverything(Socket socket, BufferedReader in, BufferedWriter out) {
