@@ -82,6 +82,9 @@ public class HomeController {
     private ArrayList<String> usernames = new ArrayList<>();
 
     @FXML
+    private VBox mainMess_box;
+
+    @FXML
     private SVGPath accSvg_path;
 
     @FXML
@@ -119,6 +122,12 @@ public class HomeController {
 
     @FXML
     private HBox self_chat;
+
+    @FXML
+    private HBox group_chat;
+
+    @FXML
+    private VBox selfChat_box;
 
     @FXML
     private VBox chat_vbox;
@@ -256,6 +265,9 @@ public class HomeController {
     private Button setting_btn;
 
     @FXML
+    private Button ask_btn;
+
+    @FXML
     private Button showCNPass;
 
     @FXML
@@ -283,19 +295,48 @@ public class HomeController {
     private Label checker;
 
     @FXML
-    private Label gchecker;
+    private Label gChecker;
 
     @FXML
     private TextField username_field;
 
     public boolean isDark = true;
+    private boolean isGDetailDisplayed = false;
 
-    
     public HomeController(Stage stage) {
         this.homeStage = stage;
     }
     
     public HomeController(){}
+
+    @FXML
+    private void showGroupDetail(ActionEvent event){
+        if(isGDetailDisplayed){
+            gDetail_box.setVisible(false);
+            isGDetailDisplayed = false;
+        } else {
+            gDetail_box.setVisible(true);
+            isGDetailDisplayed = true;
+        }
+    }
+
+    @FXML
+    private void showGDetail(MouseEvent event){
+        if(isGDetailDisplayed){
+            gDetail_box.setVisible(false);
+            isGDetailDisplayed = false;
+        } else {
+            gDetail_box.setVisible(true);
+            isGDetailDisplayed = true;
+        }
+    }
+    @FXML
+    void showAskBox(ActionEvent event){
+        Button btn = (Button) event.getSource();
+        ask_box.setVisible(true);
+        setCheck(btn);
+    }
+
     @FXML
     void openSetting(ActionEvent event){
         Button btn = (Button) event.getSource();
@@ -314,7 +355,7 @@ public class HomeController {
         SVGPath eye = (SVGPath) btn.getGraphic();
         Password.showPassword(oldPass_field, eye);
     }
- 
+
 
     @FXML
     void showConfirmedPass(ActionEvent event) {
@@ -329,23 +370,22 @@ public class HomeController {
         SVGPath eye = (SVGPath) btn.getGraphic();
         Password.showPassword(newPass_field, eye);
     }
-
-    @FXML
-    void showAccountBox(ActionEvent event){
-        Button btn = (Button) event.getSource();
-        acc_box.setVisible(true);
-        setCheck(btn);
-    }
     
     private void setCheck(Button btn) {
+        setUnCheck(btn);
         btn.setStyle("-fx-background-color: rgba(255, 255, 255, 0.22);");
     }
 
-    @FXML
-    void addNewAccount(ActionEvent event) {
-
+    private void setUnCheck(Button btn){
+        for(int i=3; i<7;i++){
+            Button button = (Button) menu_box.getChildren().get(i);
+            if(button == btn){
+                continue;
+            } else {
+                button.setStyle("-fx-background-color: rgba(255, 255, 255, 0.0605)");
+            }
+        }
     }
-
 
     @FXML
     void changePassword(ActionEvent event) {
@@ -376,7 +416,7 @@ public class HomeController {
 
     @FXML
     void closeGroupDetail(ActionEvent event) {
-
+        gDetail_box.setVisible(false);
     }
 
     @FXML
@@ -387,13 +427,6 @@ public class HomeController {
     @FXML
     void sendQuestion(ActionEvent event) {
 
-    }
-    
-    @FXML
-    void changeToLightMode(ActionEvent event) {
-        Button btn = (Button) event.getSource();
-        Scene scene = (Scene) btn.getScene();
-        scene.getStylesheets().add(getClass().getResource("/com/chat/css/blackHome.css").toExternalForm());
     }
 
     @FXML
@@ -421,21 +454,28 @@ public class HomeController {
 
     @FXML
     void showSelfChat(MouseEvent eve){
-        gchecker.setVisible(false);
+        gChecker.setVisible(false);
         checker.setVisible(true);
+        mainMess_box.setVisible(false);
+        selfChat_box.setVisible(true);
     }
 
     @FXML
     void showGroupChat(MouseEvent eve){
-        gchecker.setVisible(true);
+        gChecker.setVisible(true);
         checker.setVisible(false);
+        selfChat_box.setVisible(false);
+        mainMess_box.setVisible(true);
     }
 
     // message from the server
     public void showMessage(String message){
-        System.out.println("Message: " + message);
+        // String delimiter = ":";
+        // String[] parts = message.split(delimiter);
+        // String uname = parts[0];
+        // String mess = parts[1];
 
-        nameLabel = new Label("Sgc");
+        nameLabel = new Label("jedi");
         reply_btn = new Button("reply");
         reply_btn.setOnAction(eve -> {
             reply(eve, "other");
@@ -492,7 +532,7 @@ public class HomeController {
         nameBox = new HBox(nameLabel, replyLabel,spacer, reply_btn);
         nameBox.setPrefWidth(nameLabel.getWidth());
         nameBox.setAlignment(Pos.CENTER_LEFT);
-        nameBox.setPadding(new Insets(0, 10, 0, 0));     
+        nameBox.setPadding(new Insets(0, 10, 0, 0));
 
         messLabel = new Label(mess);
         timeLabel = new Label(getNow());
@@ -542,7 +582,7 @@ public class HomeController {
         return now.format(formatter);
     }
     
-    private void styleObjects(HBox hbox) {   
+    private void styleObjects(HBox hbox) {
 
         nameLabel.getStyleClass().add("name-label");
         replyLabel.getStyleClass().add("reply-label");
@@ -561,7 +601,6 @@ public class HomeController {
         scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/com/chat/css/home.css").toExternalForm());
         scene.setFill(Color.TRANSPARENT);
-        scene.getStylesheets().add(getClass().getResource("/com/chat/css/login.css").toExternalForm());
         homeStage.setScene(scene);
         homeStage.setTitle("chatchat");
         homeStage.show();
@@ -580,7 +619,6 @@ public class HomeController {
         menu_btn.setVisible(false);
         menu_box.setVisible(true);
         uname_label.setText(username);
-        System.out.println("Username1: " + username);
     }
 
     @FXML
@@ -592,6 +630,9 @@ public class HomeController {
         profile_box.setVisible(false);
         setting_box.setVisible(false);
         password_box.setVisible(false);
+        ask_box.setVisible(false);
+        Button btn = new Button();
+        setUnCheck(btn);
     }
 
     @FXML
@@ -600,18 +641,29 @@ public class HomeController {
         profile_box.setVisible(false);
         setting_box.setVisible(false);
         password_box.setVisible(false);
+        ask_box.setVisible(false);
+        Button btn = new Button();
+        setUnCheck(btn);
     }
 
     
     private void initializeView(Parent root) {
         AnchorPane anchorPane = (AnchorPane) root;
         BorderPane borderPane = (BorderPane) anchorPane.getChildren().get(0);
+        gDetail_box = (ScrollPane) anchorPane.getChildren().get(1);
 
         header = (HBox) borderPane.getTop();
         menu_btn = (Button) header.getChildren().get(0);
 
         AnchorPane left =(AnchorPane) borderPane.getLeft();
         chatScroll_pane = (ScrollPane) left.getChildren().get(1);
+        chat_vbox = (VBox) chatScroll_pane.getContent();
+        self_chat = (HBox) chat_vbox.getChildren().get(0);
+        checker = (Label) self_chat.getChildren().get(0);
+        
+        group_chat = (HBox) chat_vbox.getChildren().get(1);
+        gChecker = (Label) self_chat.getChildren().get(0);
+
         menu_box = (VBox) left.getChildren().get(2);
         uname_label = (Label) menu_box.getChildren().get(2);
         pImg = (ImageView) menu_box.getChildren().get(1);
@@ -621,7 +673,7 @@ public class HomeController {
         });
 
         AnchorPane center = (AnchorPane) borderPane.getCenter();
-        VBox mainMess_box = (VBox) center.getChildren().get(0);
+        mainMess_box = (VBox) center.getChildren().get(0);
         profile_box = (VBox) center.getChildren().get(2);
         HBox bbox = (HBox) profile_box.getChildren().get(1);
         note_label = (Label) profile_box.getChildren().get(0);
@@ -655,6 +707,8 @@ public class HomeController {
         changePass_btn.setOnAction(passEvent -> {
             changePassword();
         });
+
+        ask_box = (VBox) center.getChildren().get(6);
         
         messScroll_pane = (ScrollPane) mainMess_box.getChildren().get(1);
         message_vbox = (VBox) messScroll_pane.getContent();
@@ -668,6 +722,8 @@ public class HomeController {
                 e.printStackTrace();
             }
         });
+
+        selfChat_box = (VBox) center.getChildren().get(7);
 
         menu_btn.setOnAction(ev -> {
             showMenuBox(ev);
