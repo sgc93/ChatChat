@@ -1,8 +1,4 @@
 package com.chat.utilities;
-
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
 import javafx.scene.control.PasswordField;
 import javafx.scene.shape.SVGPath;
 
@@ -40,4 +36,6 @@ public class Password {
         //     toggleTimeline.play();
         // }
     }
+
+    
 }
